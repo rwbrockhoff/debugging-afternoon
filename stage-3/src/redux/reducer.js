@@ -15,6 +15,8 @@ let initialState = {
 // Reducer
 export default function reducer(state=initialState, action) {
     switch(action.type) {
+        // case GET_ALL_PRODUCTS: 
+        //     return Object.assign({}, state, {products: action.payload})
         case GET_ALL_PRODUCTS_PENDING:
             return Object.assign({}, state, {loading: true});
 
@@ -26,10 +28,10 @@ export default function reducer(state=initialState, action) {
 
         case REMOVE_FROM_SHOPPING_CART:
             let newArray = state.shoppingCart.slice();
-            newArray.splice(action.index, 1);
-            return Object.assign({}, {shoppingCart: newArray});
+            newArray.splice(action.payload, 1);
+            return Object.assign({}, state, {shoppingCart: newArray});
             
-        defualt:
+        default:
             return state;
     }
 }
@@ -52,6 +54,20 @@ export function removeFromShoppingCart(productIndex) {
 export function getAllProducts(products) {
     return {
         type: GET_ALL_PRODUCTS,
+        payload: productsController.getAllProducts()
+    }
+}
+
+export function getAllProductsPending(products) {
+    return {
+        type: GET_ALL_PRODUCTS_PENDING,
+        payload: productsController.getAllProducts()
+    }
+}
+
+export function getAllProductsFulfilled(products) {
+    return {
+        type: GET_ALL_PRODUCTS_FULFILLED,
         payload: productsController.getAllProducts()
     }
 }

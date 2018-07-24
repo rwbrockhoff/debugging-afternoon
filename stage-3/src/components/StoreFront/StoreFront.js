@@ -4,10 +4,15 @@ import { connect } from 'react-redux';
 import { addToShoppingCart, getAllProducts } from '../../redux/reducer';
 
 class StoreFront extends Component {
+    
 
     componentDidMount() {
         this.props.getAllProducts();
     }
+
+  
+
+    
 
     render() {
         console.log(this.props.products);
