@@ -12,6 +12,8 @@ img {
 .shopping-cart-container {
     position: relative;
     display: flex;
+    flex-direction: column;
+    margin-left: 10vw;
     justify-content: space-around;
     flex-wrap: wrap;
 }
@@ -26,6 +28,7 @@ img {
 .shopping-cart-container h1 {
     font-size: 30px;
     margin: 3vh 0;
+    
 }
 
 .shopping-cart-container h2 {
@@ -51,5 +54,7 @@ img {
 .go-buy-something {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: calc(100vh - 102px);
+    margin-left: -10vw;
 }
